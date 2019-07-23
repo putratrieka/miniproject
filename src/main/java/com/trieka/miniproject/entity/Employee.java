@@ -1,5 +1,6 @@
 package com.trieka.miniproject.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,14 +16,12 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "employee")
+@Table(name = "karyawan")
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "id_division", nullable = false)
-	private Long idDivision;
 	
 	@Column(nullable = false)
 	private String name;
@@ -34,17 +33,24 @@ public class Employee {
 	@Temporal(TemporalType.DATE)
 	private Date dob;
 	
+	@Column(name = "tanggal_masuk",nullable = false)
+	@Temporal(TemporalType.DATE)
+	private Date tanggalMasuk;
+	
 	@Column(nullable = false)
 	private String phone;
 	
 	@Column(nullable = false)
 	private Integer age;
 	
-	@Column(nullable = false)
-	private String gender;
+	@Column
+	private BigDecimal sallary;
 	
-	@Column(nullable = false)
-	private String status;
+	@Column(name = "jatah_cuti")
+	private int jatahCuti;
+	
+	@Column(name = "total_cuti")
+	private int totalCuti;
 	
 
 }
